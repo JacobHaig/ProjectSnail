@@ -1,9 +1,5 @@
-import java.awt.Color;
-import java.awt.Graphics;
-import java.util.ArrayList;
-
 public class Inventory {
-
+/*
 	public static ArrayList<FallingItem> stack = new ArrayList<FallingItem>();
 
 	/*
@@ -11,7 +7,7 @@ public class Inventory {
 	 * get added to the inventory The inventory needs a few things: Add(), Remove(),
 	 * first, last, max, ect
 	 */
-
+/*
 	// Add it to the back of the list
 	public static void push(FallingItem FI) {
 		stack.add(FI);
@@ -48,4 +44,5 @@ public class Inventory {
 			g.drawImage(FI.getImage(), 60 - FI.WIDTH / 2, i * 100, FI.WIDTH, 90, null);
 		}
 	}
+	*/
 }

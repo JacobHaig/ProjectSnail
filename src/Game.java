@@ -2,20 +2,17 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Game extends JFrame {
-    public static final int WINDOW_WIDTH = 1200;
-    public static final int WINDOW_HEIGHT = 800;
+    public static final int WIDTH = 800;
+    public static final int HEIGHT = 1000;
 
     public static Game game;
     public static Screen screen;
 
-    public static boolean gameOver = false;
-    public static boolean gameStart = true;
-    public static boolean gamePaused = false;
 
     public Game() {
         // Setting up the window
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+        this.setSize(WIDTH, HEIGHT);
         this.setResizable(false);
         this.setTitle("Poppit!");
         this.setLocationRelativeTo(null);
@@ -23,7 +20,6 @@ public class Game extends JFrame {
 
         // Mouse and Key Listeners
         addKeyListener(new KeyInput());
-        addMouseListener(new MouseInput());
 
         // Create the Screen!
         screen = new Screen();

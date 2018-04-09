@@ -8,31 +8,31 @@ public class KeyInput extends KeyAdapter {
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 
-		if (key == KeyEvent.VK_Y)
-			Game.gameStart = false;
+		//if (key == KeyEvent.VK_Y)
+		//Game.gameStart = false;
 
 		// Arrow Keys
 		if (key == KeyEvent.VK_RIGHT)
-			Tick.player.setMovingRight(true);
+			Tick.piece.setMovingRight(true);
 		else if (key == KeyEvent.VK_LEFT)
-			Tick.player.setMovingLeft(true);
+			Tick.piece.setMovingLeft(true);
 		else if (key == KeyEvent.VK_UP)
-			Tick.player.setMovingUp(true);
+			Tick.piece.setMovingUp(true);
 		else if (key == KeyEvent.VK_DOWN)
-			Tick.player.setMovingDown(true);
+			Tick.piece.setMovingDown(true);
 
 		// WASD Keys
 		if (key == KeyEvent.VK_D)
-			Tick.player.setMovingRight(true);
+			Tick.piece.setMovingRight(true);
 		else if (key == KeyEvent.VK_A)
-			Tick.player.setMovingLeft(true);
+			Tick.piece.setMovingLeft(true);
 		else if (key == KeyEvent.VK_W)
-			Tick.player.setMovingUp(true);
+			Tick.piece.setMovingUp(true);
 		else if (key == KeyEvent.VK_S)
-			Tick.player.setMovingDown(true);
+			Tick.piece.setMovingDown(true);
 
-		if (key == KeyEvent.VK_ESCAPE)
-			Game.gamePaused = !Game.gamePaused;
+		//if (key == KeyEvent.VK_ESCAPE)
+		//Game.gamePaused = !Game.gamePaused;
 	}
 
 	// Global Key released
@@ -42,22 +42,22 @@ public class KeyInput extends KeyAdapter {
 
 		// Arrow Keys
 		if (key == KeyEvent.VK_RIGHT)
-			Tick.player.setMovingRight(false);
+			Tick.piece.setMovingRight(false);
 		else if (key == KeyEvent.VK_LEFT)
-			Tick.player.setMovingLeft(false);
+			Tick.piece.setMovingLeft(false);
 		else if (key == KeyEvent.VK_UP)
-			Tick.player.setMovingUp(false);
+			Tick.piece.setMovingUp(false);
 		else if (key == KeyEvent.VK_DOWN)
-			Tick.player.setMovingDown(false);
+			Tick.piece.setMovingDown(false);
 
 		// WASD Keys
 		if (key == KeyEvent.VK_D)
-			Tick.player.setMovingRight(false);
+			Tick.piece.setMovingRight(false);
 		else if (key == KeyEvent.VK_A)
-			Tick.player.setMovingLeft(false);
+			Tick.piece.setMovingLeft(false);
 		else if (key == KeyEvent.VK_W)
-			Tick.player.setMovingUp(false);
+			Tick.piece.setMovingUp(false);
 		else if (key == KeyEvent.VK_S)
-			Tick.player.setMovingDown(false);
+			Tick.piece.setMovingDown(false);
 	}
 }
