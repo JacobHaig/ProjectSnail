@@ -14,7 +14,7 @@ public class Game extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(WIDTH, HEIGHT);
         this.setResizable(false);
-        this.setTitle("Poppit!");
+        this.setTitle("Tetris!");
         this.setLocationRelativeTo(null);
         this.setLayout(new GridLayout(1, 1, 0, 0));
 
@@ -37,7 +37,7 @@ public class Game extends JFrame {
         //new Music();
 
         while(true){
-            Tick.step();
+            Tick.tick();
         }
     }
 }

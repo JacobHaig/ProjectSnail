@@ -1,3 +1,7 @@
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 /******************************************************************************
  *  Compilation:  javac Matrix.java
  *  Execution:    java Matrix
@@ -7,19 +11,15 @@
  ******************************************************************************/
 
 final public class Matrix {
+    public final double[][] data;   // M-by-N array
     private final int M;             // number of rows
     private final int N;             // number of columns
-    public final double[][] data;   // M-by-N array
 
     // create M-by-N matrix of 0's
     public Matrix(int M, int N) {
         this.M = M;
         this.N = N;
         data = new double[M][N];
-    }
-
-    public double[][] getData() {
-        return data;
     }
 
     // create matrix based on 2d array
@@ -54,6 +54,10 @@ final public class Matrix {
         return I;
     }
 
+    public double[][] getData() {
+        return data;
+    }
+
     // swap rows i and j
     private void swap(int i, int j) {
         double[] temp = data[i];
@@ -82,6 +86,13 @@ final public class Matrix {
     }
 
 
+    public Matrix Rotate() {
+        List<double[]> list = Arrays.asList(data);
+        Collections.reverse(list);
+
+        return new Matrix((double[][]) list.toArray());
+    }
+
     // return C = A - B
     public Matrix minus(Matrix B) {
         Matrix A = this;
@@ -106,6 +117,18 @@ final public class Matrix {
     // return C = A * B
     public Matrix times(Matrix B) {
         Matrix A = this;
+        if (B.N != A.M) throw new RuntimeException("Illegal matrix dimensions.");
+        Matrix C = new Matrix(B.M, A.N);
+        for (int i = 0; i < C.M; i++)
+            for (int j = 0; j < C.N; j++)
+                for (int k = 0; k < B.N; k++)
+                    C.data[i][j] += (B.data[i][k] * A.data[k][j]);
+        return C;
+    }
+
+    // return C = B * A
+    public Matrix times2(Matrix B) {
+        Matrix A = this;
         if (A.N != B.M) throw new RuntimeException("Illegal matrix dimensions.");
         Matrix C = new Matrix(A.M, B.N);
         for (int i = 0; i < C.M; i++)
@@ -114,7 +137,6 @@ final public class Matrix {
                     C.data[i][j] += (A.data[i][k] * B.data[k][j]);
         return C;
     }
-
 
     // return x = A^-1 b, assuming A is square and has full rank
     public Matrix solve(Matrix rhs) {

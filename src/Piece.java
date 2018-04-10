@@ -3,59 +3,51 @@ import java.awt.image.BufferedImage;
 
 public class Piece {
 
-    private static boolean movingRight = false;
-    private static boolean movingLeft = false;
-    private static boolean movingUp = false;
-    private static boolean movingDown = false;
-
-
-    private static int pieceSize = BackGround.gridSize;
+    private static int gridSize = BackGround.gridSize;
     private static Point PieceOffset = BackGround.gridOffset;
 
     private static BufferedImage grayScale = Images.getImage("piece.png");
 
-    private Point pos;
-    private Arrangements order = new Arrangements();
+    public Point pos;
+    public Point.Double posVisual;
+
+    private Arrangements matrix = new Arrangements();
 
 
     Piece(int x, int y) {
         pos = new Point(x, y);
-        order.T();
+        posVisual = new Point.Double(x, y);
+
+        matrix.T();
     }
 
     // Move the player and set angle
     public void step() {
 
+        pos.y += 1;
+
+        posVisual.y = pos.y;
+
+        // slide();
     }
+
+    private void slide(double t) {
+        posVisual.y += (-0.5 * (Math.cos(Math.PI * t) - 1));
+    }
+
 
     public void render(Graphics g) {
 
-        //System.out.println(order.getString()[0].length() + " " + order.getString().length);
+        for (int x = -1; x < matrix.getData()[0].length - 1; x++)
+            for (int y = -1; y < matrix.getData().length - 1; y++)
+                if (matrix.getData()[y + 1][x + 1] == 1) {
 
-        for (int x = -1; x < order.getData()[0].length - 1; x++)
-            for (int y = -1; y < order.getData().length - 1; y++)
-                if (order.getData()[x + 1][y + 1] == 1)
-                    g.drawImage(grayScale, PieceOffset.x + (pos.x + x) * pieceSize, PieceOffset.y + (pos.y + y) * pieceSize, pieceSize, pieceSize, null);
+                    // (posVisual.x + x) == is the matrix offset
+                    int xx = (int) (PieceOffset.x + (posVisual.x + x) * gridSize);
+                    int yy = (int) (PieceOffset.y + (posVisual.y + y) * gridSize);
 
-        //g.drawImage(grayScale, 100, 100, pieceSize, pieceSize, null);
-
-        //g.drawImage(grayScale, PieceOffset.x + (pos.x) * pieceSize, PieceOffset.y + (pos.y) * pieceSize, pieceSize, pieceSize, null);
+                    g.drawImage(grayScale, xx, yy, gridSize, gridSize, null);
+                }
     }
 
-
-    public void setMovingRight(boolean movingRight) {
-        Piece.movingRight = movingRight;
-    }
-
-    public void setMovingLeft(boolean movingLeft) {
-        Piece.movingLeft = movingLeft;
-    }
-
-    public void setMovingUp(boolean movingUp) {
-        Piece.movingUp = movingUp;
-    }
-
-    public void setMovingDown(boolean movingDown) {
-        Piece.movingDown = movingDown;
-    }
 }

@@ -1,6 +1,10 @@
 public class Arrangements {
-    public Matrix cur;
+    public static Matrix cur;
 
+    public static void rotationRight() {
+        cur = cur.transpose();
+        cur = cur.Rotate();
+    }
 
     public double[][] getData() {
         return cur.getData();
@@ -10,12 +14,8 @@ public class Arrangements {
         return cur;
     }
 
-    public void rotationRight() {
-        cur.times(new Matrix(new double[][]{{0, -1}, {1, 0}}));
-    }
-
     public void rotationLeft() {
-        cur.times(new Matrix(new double[][]{{0, -1}, {1, 0}}));
+        cur = cur.times(new Matrix(new double[][]{{0, -1}, {1, 0}}));
     }
 
     public void T() {
@@ -23,7 +23,7 @@ public class Arrangements {
     }
 
     public void I() {
-        cur = new Matrix(new double[][]{{0, 1, 0}, {0, 1, 0}, {0, 1, 0}});
+        cur = new Matrix(new double[][]{{0, 1, 0, 0}, {0, 1, 0, 0}, {0, 1, 0, 0}, {0, 1, 0, 0}});
     }
 
     public void J() {
@@ -39,11 +39,11 @@ public class Arrangements {
     }
 
     public void S() {
-        cur = new Matrix(new double[][]{{0, 1, 1}, {1, 1, 0}});
+        cur = new Matrix(new double[][]{{0, 1, 1}, {1, 1, 0}, {0, 0, 0}});
     }
 
     public void Z() {
-        cur = new Matrix(new double[][]{{1, 1, 0}, {0, 1, 1}});
+        cur = new Matrix(new double[][]{{1, 1, 0}, {0, 1, 1}, {0, 0, 0}});
     }
 
 
