@@ -2,7 +2,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-//Import the Image from the res(RESOURCES) Folder
+//Import the Image from the res Folder
 public class Images {
     private static Images image;
 

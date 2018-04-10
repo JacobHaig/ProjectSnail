@@ -8,7 +8,6 @@ public class Game extends JFrame {
     public static Game game;
     public static Screen screen;
 
-
     public Game() {
         // Setting up the window
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -25,7 +24,6 @@ public class Game extends JFrame {
         screen = new Screen();
         this.add(screen);
         this.setVisible(true);
-
     }
 
     // Main
@@ -36,8 +34,7 @@ public class Game extends JFrame {
 
         //new Music();
 
-        while(true){
+        while (true)
             Tick.tick();
-        }
     }
 }

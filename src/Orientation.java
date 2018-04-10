@@ -1,4 +1,4 @@
-public class Arrangements {
+public class Orientation {
     public static Matrix cur;
 
     public static void rotationRight() {
@@ -12,10 +12,6 @@ public class Arrangements {
 
     public Matrix getMatrix() {
         return cur;
-    }
-
-    public void rotationLeft() {
-        cur = cur.times(new Matrix(new double[][]{{0, -1}, {1, 0}}));
     }
 
     public void T() {

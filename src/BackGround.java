@@ -17,11 +17,10 @@ public class BackGround {
 
         // Lay out the Grid
         g.setColor(WHITE);
-        for (int x = 0; x < grid.x; x++) {
-            for (int y = 0; y < grid.y; y++) {
+        for (int x = 0; x < grid.x; x++)
+            for (int y = 0; y < grid.y; y++)
                 g.drawRect(gridOffset.x + x * gridSize, gridOffset.y + y * gridSize, gridSize, gridSize);
-            }
-        }
+
 
     }
 }

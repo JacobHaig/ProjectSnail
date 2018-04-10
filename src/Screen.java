@@ -10,10 +10,8 @@ public class Screen extends JPanel {
 
     @Override
     public void paint(Graphics g) {
-
         BackGround.render(g);
 
         Tick.piece.render(g);
-
     }
 }

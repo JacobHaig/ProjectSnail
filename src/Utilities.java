@@ -9,6 +9,7 @@ public class Utilities {
         return ((int) (Math.random() * (higher) + 1));
     }
 
+    // Requires Seconds not Milli-Seconds
     // A cleaner version of Thread.sleep()
     public static void sleepThread(double wait) {
         try {
@@ -17,5 +18,4 @@ public class Utilities {
             e.printStackTrace();
         }
     }
-
 }

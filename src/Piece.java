@@ -2,17 +2,13 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Piece {
-
     private static int gridSize = BackGround.gridSize;
     private static Point PieceOffset = BackGround.gridOffset;
-
     private static BufferedImage grayScale = Images.getImage("piece.png");
 
     public Point pos;
     public Point.Double posVisual;
-
-    private Arrangements matrix = new Arrangements();
-
+    private Orientation matrix = new Orientation();
 
     Piece(int x, int y) {
         pos = new Point(x, y);
@@ -24,15 +20,15 @@ public class Piece {
     // Move the player and set angle
     public void step() {
 
-        pos.y += 1;
+        //COLLISION?
 
         posVisual.y = pos.y;
+        pos.y += 1;
 
-        // slide();
     }
 
-    private void slide(double t) {
-        posVisual.y += (-0.5 * (Math.cos(Math.PI * t) - 1));
+    public void slide(double t) {
+        posVisual.y = (-0.5 * (Math.cos(Math.PI * t) - 1) + pos.y);
     }
 
 

@@ -14,7 +14,7 @@ public class KeyInput extends KeyAdapter {
         else if (key == KeyEvent.VK_LEFT)
             Tick.piece.pos.x -= 1;
         else if (key == KeyEvent.VK_UP)
-            Arrangements.rotationRight();
+            Orientation.rotationRight();
         else if (key == KeyEvent.VK_DOWN) {
         }
 
