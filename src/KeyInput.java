@@ -18,8 +18,9 @@ public class KeyInput extends KeyAdapter {
         else if (key == KeyEvent.VK_DOWN) {
         }
 
+        // When Key press also change Visual Pos
+        Tick.piece.posVisual.x = Tick.piece.pos.x;
 
-        Tick.piece.posVisual.setLocation(Tick.piece.pos);
         Game.screen.repaint(); // Draw the screen!
 
     }
