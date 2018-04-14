@@ -85,11 +85,10 @@ final public class Matrix {
         return C;
     }
 
-
+    // Reverse the Columns 1,2,3 to 3,2,1
     public Matrix Rotate() {
         List<double[]> list = Arrays.asList(data);
         Collections.reverse(list);
-
         return new Matrix((double[][]) list.toArray());
     }
 

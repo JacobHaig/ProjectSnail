@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Orientation {
     public static Matrix cur;
 
@@ -5,6 +7,19 @@ public class Orientation {
         cur = cur.transpose();
         cur = cur.Rotate();
     }
+
+    public void randomMatrix() {
+        int ran = new Random().nextInt(7);
+
+        if (ran == 0) T();
+        if (ran == 1) I();
+        if (ran == 2) J();
+        if (ran == 3) L();
+        if (ran == 4) O();
+        if (ran == 5) S();
+        if (ran == 6) Z();
+    }
+
 
     public double[][] getData() {
         return cur.getData();

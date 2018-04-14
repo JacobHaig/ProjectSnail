@@ -19,6 +19,7 @@ public class KeyInput extends KeyAdapter {
         }
 
 
+        Tick.piece.posVisual.setLocation(Tick.piece.pos);
         Game.screen.repaint(); // Draw the screen!
 
     }

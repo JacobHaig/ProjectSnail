@@ -2,11 +2,11 @@ public class Tick extends Game {
 
     public static final double frameRate = 30.0;
     public static final double frameDur = 1.0 / frameRate;
-    private static final double slideSpeed = 1;
+    private static final double slideSpeed = 2;
     private static final double stepRate = frameRate / slideSpeed;
 
     public static Game game;
-    public static Piece piece = new Piece(5, 10);
+    public static Piece piece = new Piece(5, 3);
     public static double timer = 0;
 
     // Constructor

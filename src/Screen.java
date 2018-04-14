@@ -13,5 +13,7 @@ public class Screen extends JPanel {
         BackGround.render(g);
 
         Tick.piece.render(g);
+
+        Grid.render(g);
     }
 }
