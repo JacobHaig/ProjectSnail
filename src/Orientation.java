@@ -3,6 +3,15 @@ import java.util.Random;
 public class Orientation {
     public static Matrix cur;
 
+    public Matrix T = new Matrix(new double[][]{{0, 1, 0}, {1, 1, 1}, {0, 0, 0}});
+    public Matrix I = new Matrix(new double[][]{{0, 1, 0, 0}, {0, 1, 0, 0}, {0, 1, 0, 0}, {0, 1, 0, 0}});
+    public Matrix J = new Matrix(new double[][]{{0, 1, 0}, {0, 1, 0}, {1, 1, 0}});
+    public Matrix L = new Matrix(new double[][]{{0, 1, 0}, {0, 1, 0}, {0, 1, 1}});
+    public Matrix O = new Matrix(new double[][]{{1, 1}, {1, 1}});
+    public Matrix S = new Matrix(new double[][]{{0, 1, 1}, {1, 1, 0}, {0, 0, 0}});
+    public Matrix Z = new Matrix(new double[][]{{1, 1, 0}, {0, 1, 1}, {0, 0, 0}});
+
+
     public static void rotationRight() {
         cur = cur.transpose();
         cur = cur.Rotate();
@@ -11,13 +20,13 @@ public class Orientation {
     public void randomMatrix() {
         int ran = new Random().nextInt(7);
 
-        if (ran == 0) T();
-        if (ran == 1) I();
-        if (ran == 2) J();
-        if (ran == 3) L();
-        if (ran == 4) O();
-        if (ran == 5) S();
-        if (ran == 6) Z();
+        if (ran == 0) cur = T;
+        if (ran == 1) cur = I;
+        if (ran == 2) cur = J;
+        if (ran == 3) cur = L;
+        if (ran == 4) cur = O;
+        if (ran == 5) cur = S;
+        if (ran == 6) cur = Z;
     }
 
 
@@ -28,34 +37,5 @@ public class Orientation {
     public Matrix getMatrix() {
         return cur;
     }
-
-    public void T() {
-        cur = new Matrix(new double[][]{{0, 1, 0}, {1, 1, 1}, {0, 0, 0}});
-    }
-
-    public void I() {
-        cur = new Matrix(new double[][]{{0, 1, 0, 0}, {0, 1, 0, 0}, {0, 1, 0, 0}, {0, 1, 0, 0}});
-    }
-
-    public void J() {
-        cur = new Matrix(new double[][]{{0, 1, 0}, {0, 1, 0}, {1, 1, 0}});
-    }
-
-    public void L() {
-        cur = new Matrix(new double[][]{{0, 1, 0}, {0, 1, 0}, {0, 1, 1}});
-    }
-
-    public void O() {
-        cur = new Matrix(new double[][]{{1, 1}, {1, 1}});
-    }
-
-    public void S() {
-        cur = new Matrix(new double[][]{{0, 1, 1}, {1, 1, 0}, {0, 0, 0}});
-    }
-
-    public void Z() {
-        cur = new Matrix(new double[][]{{1, 1, 0}, {0, 1, 1}, {0, 0, 0}});
-    }
-
 
 }

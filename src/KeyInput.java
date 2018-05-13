@@ -8,21 +8,22 @@ public class KeyInput extends KeyAdapter {
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
 
-        // Arrow Keys
-        if (key == KeyEvent.VK_RIGHT)
+        // Arrow Keys && WASD
+        if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D)
             Tick.piece.pos.x += 1;
-        else if (key == KeyEvent.VK_LEFT)
+        else if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A)
             Tick.piece.pos.x -= 1;
-        else if (key == KeyEvent.VK_UP)
+        else if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W)
             Orientation.rotationRight();
-        else if (key == KeyEvent.VK_DOWN) {
+        else if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) {
         }
 
         // When Key press also change Visual Pos
         Tick.piece.posVisual.x = Tick.piece.pos.x;
 
-        Game.screen.repaint(); // Draw the screen!
+        Grid.checkBounds(Tick.piece.matrix.getMatrix(), Tick.piece.pos);
 
+        Game.screen.repaint(); // Draw the screen!
     }
 
     // Global Key released

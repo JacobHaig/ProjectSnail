@@ -2,7 +2,7 @@ public class Tick extends Game {
 
     public static final double frameRate = 30.0;
     public static final double frameDur = 1.0 / frameRate;
-    private static final double slideSpeed = 2;
+    private static final double slideSpeed = 1.5;
     private static final double stepRate = frameRate / slideSpeed;
 
     public static Game game;
@@ -18,9 +18,7 @@ public class Tick extends Game {
     public static void tick() {
         Utilities.sleepThread(frameDur);
 
-        // gets called ever stepRate = frameRate / 15 = 30 / 15 = 2 per second
         if (timer % stepRate == 0) {
-
             // MOVEMENT
             piece.step();
         }
