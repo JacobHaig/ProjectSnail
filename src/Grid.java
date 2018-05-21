@@ -130,6 +130,7 @@ public class Grid {
         for (Tile tile : tiles)
             g.drawImage(tile.curImage, (gridOffset.x + tile.x * gridWidth), (gridOffset.y + tile.y * gridWidth), gridWidth, gridWidth, null);
 
+        // Shows the grid[][]
         /*
         for (int x = 0; x < Grid.gridSize.x; x++)
             for (int y = 0; y < Grid.gridSize.y; y++)
