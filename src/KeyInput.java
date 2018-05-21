@@ -23,7 +23,7 @@ public class KeyInput extends KeyAdapter {
 
         Grid.checkBounds(Tick.piece.matrix.getMatrix(), Tick.piece.pos);
 
-        Game.screen.repaint(); // Draw the screen!
+        //Game.screen.repaint(); // Draw the screen!
     }
 
     // Global Key released

@@ -3,7 +3,10 @@ import java.util.Random;
 public class Orientation {
     public static Matrix cur;
 
-    public Matrix T = new Matrix(new double[][]{{0, 1, 0}, {1, 1, 1}, {0, 0, 0}});
+    public Matrix T = new Matrix(new double[][]{
+            {0, 1, 0},
+            {1, 1, 1},
+            {0, 0, 0}});
     public Matrix I = new Matrix(new double[][]{{0, 1, 0, 0}, {0, 1, 0, 0}, {0, 1, 0, 0}, {0, 1, 0, 0}});
     public Matrix J = new Matrix(new double[][]{{0, 1, 0}, {0, 1, 0}, {1, 1, 0}});
     public Matrix L = new Matrix(new double[][]{{0, 1, 0}, {0, 1, 0}, {0, 1, 1}});

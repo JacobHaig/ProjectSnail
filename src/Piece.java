@@ -6,13 +6,18 @@ public class Piece {
     public static BufferedImage redScale = Images.getImage("pieceRed.png");
     private static int gridWidth = Grid.gridWidth;
     private static Point PieceOffset = Grid.gridOffset;
+
     public Point pos;
     public Point.Double posVisual;
     public Orientation matrix = new Orientation();
 
+    public Color c;
+
     Piece(int x, int y) {
         pos = new Point(x, y);
         posVisual = new Point.Double(x, y);
+
+        c = new Color(0, 255, 180);
 
         matrix.randomMatrix(); // New Piece!
     }
@@ -42,7 +47,7 @@ public class Piece {
 
     // Render the matrix
     public void render(Graphics g) {
-        boolean testing = true;
+        boolean testing = false;
 
         for (int x = -1; x < matrix.getData()[0].length - 1; x++)
             for (int y = -1; y < matrix.getData().length - 1; y++)
