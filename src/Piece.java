@@ -46,9 +46,11 @@ public class Piece {
 
         Grid.checkBounds(matrix.getMatrix(), pos);
 
+
         // If Piece hits the bottom/ another piece
         if (Grid.checkCollision(matrix.getMatrix(), pos)) {
             Grid.addGrid(matrix.getMatrix(), pos);
+            Grid.checkRows();
 
             // NEW PIECE
             Tick.piece = new Piece(5, 3);
