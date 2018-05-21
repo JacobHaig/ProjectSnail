@@ -4,6 +4,11 @@ import java.awt.image.BufferedImage;
 public class Piece {
     public static BufferedImage grayScale = Images.getImage("piece.png");
     public static BufferedImage redScale = Images.getImage("pieceRed.png");
+    public static BufferedImage greenScale = Images.getImage("pieceGreen.png");
+    public static BufferedImage orangeScale = Images.getImage("pieceOrange.png");
+    public static BufferedImage blueScale = Images.getImage("pieceBlue.png");
+
+
     private static int gridWidth = Grid.gridWidth;
     private static Point PieceOffset = Grid.gridOffset;
 
@@ -11,14 +16,28 @@ public class Piece {
     public Point.Double posVisual;
     public Orientation matrix = new Orientation();
 
-    public Color c;
+    public BufferedImage curImage;
 
     Piece(int x, int y) {
         pos = new Point(x, y);
         posVisual = new Point.Double(x, y);
 
-        c = new Color(0, 255, 180);
-
+        switch (Utilities.random(4)) {
+            case 1:
+                curImage = redScale;
+                break;
+            case 2:
+                curImage = greenScale;
+                break;
+            case 3:
+                curImage = orangeScale;
+                break;
+            case 4:
+                curImage = blueScale;
+                break;
+            default:
+                curImage = redScale;
+        }
         matrix.randomMatrix(); // New Piece!
     }
 
@@ -54,7 +73,7 @@ public class Piece {
                 if (matrix.getData()[y + 1][x + 1] == 1) {
 
                     int xx, yy;
-                    // (posVisual.x + x) == is the matrix offset
+                    // posVisual.x + x   is the matrix offset
                     if (!testing) {
                         xx = (int) (PieceOffset.x + (posVisual.x + x) * gridWidth); //Default
                         yy = (int) (PieceOffset.y + (posVisual.y + y) * gridWidth);
@@ -62,10 +81,11 @@ public class Piece {
                         xx = PieceOffset.x + (pos.x + x) * gridWidth; // Testing
                         yy = PieceOffset.y + (pos.y + y) * gridWidth;
                     }
-                    g.drawImage(grayScale, xx, yy, gridWidth, gridWidth, null);
+                    g.drawImage(curImage, xx, yy, gridWidth, gridWidth, null);
 
                 }
-        g.drawImage(redScale, (int) (PieceOffset.x + posVisual.x * gridWidth), (int) (PieceOffset.y + posVisual.y * gridWidth), gridWidth, gridWidth, null);
+        // DRAW CENTER POINT
+        //g.drawImage(curImage, (int) (PieceOffset.x + posVisual.x * gridWidth), (int) (PieceOffset.y + posVisual.y * gridWidth), gridWidth, gridWidth, null);
     }
 
 }

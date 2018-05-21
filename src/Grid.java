@@ -1,16 +1,17 @@
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 class Tile {
     public int x;
     public int y;
 
-    public Color c;
+    public BufferedImage curImage;
 
-    Tile(int x, int y, Color c) {
+    Tile(int x, int y, BufferedImage curImage) {
         this.x = x;
         this.y = y;
-        this.c = c;
+        this.curImage = curImage;
     }
 
 }
@@ -32,7 +33,7 @@ public class Grid {
             for (int xx = -1; xx < m.getData()[0].length - 1; xx++)
                 if (m.getData()[yy + 1][xx + 1] == 1) {
                     grid[pos.y + yy][pos.x + xx] = 1;
-                    tiles.add(new Tile(pos.x + xx, pos.y + yy, Tick.piece.c));
+                    tiles.add(new Tile(pos.x + xx, pos.y + yy, Tick.piece.curImage));
                 }
     }
 
@@ -94,7 +95,7 @@ public class Grid {
         // Loop through the matrix
         for (Tile tile : tiles) {
 
-            g.drawImage(Piece.redScale, (gridOffset.x + tile.x * gridWidth), (gridOffset.y + tile.y * gridWidth), gridWidth, gridWidth, null);
+            g.drawImage(tile.curImage, (gridOffset.x + tile.x * gridWidth), (gridOffset.y + tile.y * gridWidth), gridWidth, gridWidth, null);
         }
 
         /*for (int x = 0; x < Grid.gridSize.x; x++)
